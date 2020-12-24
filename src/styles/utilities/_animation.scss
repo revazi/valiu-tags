@@ -1,0 +1,28 @@
+// SLIDE UP, FADE IN
+// -----------------
+@keyframes slideUpFadeIn {
+  0% {
+    opacity: 0;
+    margin-top: 25%;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+
+
+// FADE IN
+// -------
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+

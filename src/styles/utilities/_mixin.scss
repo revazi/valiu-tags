@@ -1,0 +1,12 @@
+@mixin placeholder-color {
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    opacity: 1; /* Firefox */
+    @content;
+  }
+  &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    @content;
+  }
+  &::-ms-input-placeholder { /* Microsoft Edge */
+    @content;
+  }
+}

@@ -1,0 +1,42 @@
+@import "~styles/variables";
+@import "~styles/utilities/animation";
+@import "~styles/utilities/mixin";
+ 
+.container {
+  background: $color-white;
+  width: 100%;
+  opacity: 0;
+  animation: fadeIn ease-in 1;
+  animation-fill-mode: forwards;
+  animation-duration: 100ms;
+  border: 1px solid $border-color;
+  border-top: 0;
+}
+
+.input {
+  background: none;
+  border: none;
+  outline: none;
+  padding: $tagger-padding;
+  width: 100%;
+  font-size: $fs-ml; 
+  color: $color-text-dark;
+  @include placeholder-color {
+    color: $color-text-light;
+  }
+}
+
+.addTagContainer {
+  padding: $tagger-padding;
+  text-align: center;
+  h3 {
+    margin: 0 auto $s24;
+    font-weight: $fw-book;
+  }
+  button {
+    padding: $s8;
+    background: 0;
+    border: 1px solid $border-color; 
+    cursor: pointer;
+  }
+}

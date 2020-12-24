@@ -1,0 +1,22 @@
+@import "~styles/_variables.scss";
+
+.tagger {
+  display: block;
+  position: relative;
+  width: 100%;
+  max-width: $tagger-max-width;
+  margin: $s104 auto 0;
+  font-size: $fs-m;
+  background: $color-white;
+  .header {
+    width: 100%;
+    background: $color-white;
+    border: 1px solid $border-color;
+    text-align: left;
+    padding: $tagger-padding;
+  }
+  button.header {
+    cursor: pointer;
+  }
+}
+

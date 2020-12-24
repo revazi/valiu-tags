@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "lib": [ "esnext" ],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "target": "ESNext",
+    "isolatedModules": true,
+    "noEmit": true,
+    "sourceMap": true,
+    "resolveJsonModule": true
+  }
+}

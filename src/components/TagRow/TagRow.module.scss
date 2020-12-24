@@ -1,0 +1,125 @@
+@import '~styles/variables';
+
+.row {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  background: yellow;
+  background-color: green;
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    opacity: 0;
+    transition: $transition-normal;
+
+    background-color: inherit;
+  }
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    opacity: 0;
+    transition: $transition-normal;
+
+    background-color: inherit;
+  }
+  &:hover, &.active {
+    &:before {
+      opacity: 1;
+    }
+    &:after {
+      opacity: 0.05;
+    }
+  }
+  &.active {
+    .content {
+      padding-top: $s12;
+      padding-bottom: $s12;
+    }
+  }
+  .bgWrap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1;
+  }
+
+  .circle {
+    width: $s8;
+    height: $s8;
+    border-radius: 50%;
+    margin-right: $s4;
+    color: $color-text-dark;
+  }
+  .textWrap {
+    display: block;
+    max-width: 50%;
+    position: relative;
+    span {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      max-width: 100%;
+      display: inline-block;
+      white-space: nowrap;
+      margin-left: $s8;
+
+      // fix for vertical alignining and not adding extra space
+      vertical-align: top;
+    }
+  }
+  .tagTextInput {
+    border: none;
+    box-shadow: none;
+    outline: none;
+    background: white;
+
+    line-height: 1.5;
+    padding: $s12 $s8;
+  }
+  .content {
+    position: relative;
+    display: flex;
+    width: 100%;
+    padding: $tagger-padding;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 3;
+  }
+  .title {
+    display: flex;
+    flex: 1 1 50%;
+    align-items: center;
+    max-width: 70%;
+  }
+  .actions {
+    display: flex;
+    font-size: $fs-s;
+    color: $color-text-light;
+    font-weight: $fw-medium;
+    button {
+      background: none;
+      border: none;
+      box-shadow: none;
+      cursor: pointer;
+      & + button {
+        margin-left: $s16;
+      }
+    }
+  }
+}
+
+
+
+

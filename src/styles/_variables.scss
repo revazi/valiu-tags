@@ -1,0 +1,136 @@
+@import 'utilities/function';
+/* ––––––––––––––––– */
+/*      colors       */
+/* ––––––––––––––––– */
+
+// Blue palette
+$color-blue-primary: #006cfa;
+
+// Grey palette
+$color-grey-primary: #8093ad;
+
+// Green palette
+$color-green-primary: #0cd977;
+
+// Yellow palette
+$color-yellow-primary: #ffc61c;
+
+// Red palette
+$color-red-primary: #ee0000;
+
+// Color references
+$color-text-dark: #3E4F63;
+$color-text-light: #849399;
+$color-white: #fff;
+$background-color: tint($color-grey-primary, 95%);
+$border-color: #E7ECF3; 
+// tint($color-grey-primary, 80%);
+
+$color-facebook-bg: #3b5998;
+$color-twitter-bg: #55acee;
+$color-linkedin-bg: #0084bf;
+
+/* ––––––––––––––––– */
+/*     Box-shadows   */
+/* ––––––––––––––––– */
+
+// BLACKS
+$bs-weak: 0 1px 2px 0 rgba(0, 0, 0, 0.16);
+$bs-medium: 0 1px 2px 0 rgba(0, 0, 0, 0.16);
+$bs-strong: 0 2px 4px 0 rgba(0, 0, 0, 0.24);
+$bs-heavy: 0 4px 16px 0 rgba(0, 0, 0, 0.24);
+
+/* ––––––––––––––––– */
+/*   8 Point Scale   */
+/* ––––––––––––––––– */
+$scale: 0.5rem; // 8px
+
+$s2: $scale/4; // 2px
+$s4: $scale/2; // 4px
+$s8: $scale; // 8px
+$s10: $scale * 1.25; // 10px
+$s12: $scale * 1.5; // 12px
+$s14: $scale * 1.75; // 14px
+$s16: $scale * 2; // 16px
+$s20: $scale * 2.5; // 20px
+$s24: $scale * 3; // 24px
+$s32: $scale * 4; // 32px
+$s36: $scale * 4.5; // 36px
+$s40: $scale * 5; // 40px
+$s48: $scale * 6; // 48px
+$s56: $scale * 7; // 56px
+$s60: $scale * 7.5; // 60px
+$s64: $scale * 8; // 64px
+$s72: $scale * 9; // 72px
+$s80: $scale * 10; // 80px
+$s84: $scale * 10; // 84px
+$s88: $scale * 11; // 88px
+$s96: $scale * 12; // 96px
+$s104: $scale * 13; // 104px
+$s112: $scale * 14; // 112px
+$s120: $scale * 15; // 120px
+$s128: $scale * 16; // 128px
+$s136: $scale * 17; // 136px
+$s144: $scale * 18; // 144px
+$s152: $scale * 19; // 152px
+$s160: $scale * 20; // 160px
+$s168: $scale * 21; // 168px
+
+/* ––––––––––––––––– */
+/* Typographic Scale */
+/* ––––––––––––––––– */
+$fs-xxs: $s10; // 10px
+$fs-xs: $s12; // 12px
+$fs-s: $s14; // 14px
+$fs-m: $s16; // 16px
+$fs-ml: $s20; // 20px
+$fs-l: $s24; // 24px
+$fs-xl: $s32; // 32px
+$fs-xxl: $s40; // 40px
+
+/* ––––––––––––––––– */
+/*   Border Radius   */
+/* ––––––––––––––––– */
+$br-sm: $s2;
+$br-md: $s4;
+$br-lg: $s8;
+
+/* ––––––––––––––––– */
+/*    Transistions   */
+/* ––––––––––––––––– */
+$transition-fast: all 0.05s ease-in-out;
+$transition-normal: all 0.1s ease-in-out;
+$transition-slow: all 0.25s ease-in-out;
+
+/* ––––––––––––––––– */
+/*    Breakpoints    */
+/* ––––––––––––––––– */
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1440px;
+$xxxl: 1600px;
+$xxxxl: 2000px;
+
+/* ––––––––––––––––– */
+/*    Font Weights   */
+/* ––––––––––––––––– */
+$fw-book: 400;
+$fw-medium: 500;
+$fw-semibold: 600;
+$fw-heavy: 700;
+$fw-black: 900;
+
+/* ––––––––––––––– */
+/*    Font Stack   */
+/* ––––––––––––––– */
+$font-stack: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Roboto', 'Open Sans',
+  sans-serif;
+$font-serif: 'Tiempos Headline', Georgia, serif;
+
+/* –––––––––––––––––– */
+/*    Fixed measures  */
+/* –––––––––––––––––– */
+$tagger-max-width: 700px;
+$tagger-padding: $s24;

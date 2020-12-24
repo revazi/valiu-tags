@@ -1,0 +1,61 @@
+@import 'variables';
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  height: 100%;
+  box-sizing: border-box;
+  color: $color-text-dark;
+  font-size: 16px;
+  background: $background-color;
+  font-family: $font-stack;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  line-height: 1.5;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+h1 {
+  font-size: $fs-l;
+  font-weight: $fw-semibold;
+}
+
+h2 {
+  font-size: 1.125rem;
+  font-weight: $fw-semibold;
+}
+
+h3 {
+  font-size: $fs-m;
+  font-weight: $fw-semibold;
+}
+
+a {
+  color: $color-blue-primary;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: $font-stack;
+}
+
+var {
+  font-style: normal;
+}
