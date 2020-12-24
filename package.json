@@ -24,10 +24,11 @@
     "ws": "^7.4.1"
   },
   "scripts": {
-    "start": "concurrently 'yarn start-server' 'react-scripts start'",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "concurrently 'yarn start-server' 'yarn start-app'",
+    "start-app": "react-scripts start",
+    "build-app": "react-scripts build",
+    "test-app": "react-scripts test",
+    "eject-app": "react-scripts eject",
     "start-server": "nodemon --exec ts-node --project server/tsconfig.json server --watch ./server/*.ts"
   },
   "eslintConfig": {
