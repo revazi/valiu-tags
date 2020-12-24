@@ -1,12 +1,7 @@
 import express from 'express'
 import * as http from 'http'
 import WebSocket from 'ws'
-import {
-  Tag,
-  decodeMsg,
-  handleMessage,
-  generateRandomHexColor
-} from '../src/utils/tag'
+import { Tag, decodeMsg, handleMessage, generateRandomHexColor } from '../src/utils/tag'
 
 const port = 3080
 const server = http.createServer(express())

@@ -1,3 +1,5 @@
+import { isRecord, typeIs } from './utils'
+
 export const generateRandomHexColor = () => {
   const hexCode = '0123456789ABCDEF'
   let color = '#'
@@ -11,13 +13,6 @@ export type ISocketMessage =
   | { type: 'UPDATE'; id: string; text: string }
   | { type: 'CREATE'; text: string }
   | { type: 'DELETE'; id: string }
-
-function typeIs<T>(val: T): T {
-  return val
-}
-const isRecord = (msg: unknown): msg is Record<string, unknown> => {
-  return typeof msg === 'object' && msg !== null && !Array.isArray(msg)
-}
 
 export const decodeMsg = (msg: unknown): void | ISocketMessage => {
   if (!isRecord(msg)) return
