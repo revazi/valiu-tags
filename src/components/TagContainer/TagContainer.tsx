@@ -40,7 +40,6 @@ const TagContainer = ({ tags, id, onEdit, onDelete, onCreate }: ITagContainerPro
   }
 
   const Row = ({ index, style }: ListChildComponentProps) => {
-    console.log('running list items')
     return (
       <div key={index} style={style}>
         <TagRow onDelete={onDelete} onEdit={onEdit} tag={tagsToShow[index]} />

@@ -1,7 +1,8 @@
 import express from 'express'
 import * as http from 'http'
 import WebSocket from 'ws'
-import { Tag, decodeMsg, handleMessage, generateRandomHexColor } from '../src/utils/tag'
+import { decodeMsg, handleMessage, generateRandomHexColor } from '../src/utils/tag'
+import { Tag } from '../src/utils/types'
 
 const port = 3080
 const server = http.createServer(express())
@@ -20,11 +21,12 @@ for (var i = 0; i < 100000; i++) {
 let sockets: WebSocket[] = []
 wss.on('connection', (ws: WebSocket) => {
   sockets.push(ws)
+  ws.send(JSON.stringify({ type: 'INIT', data: tagsArray }))
   ws.on('message', (message) => {
     const msg = decodeMsg(JSON.parse(JSON.parse(JSON.stringify(message))))
-    if (msg === undefined || !msg) return
+    if (msg === undefined || !msg || msg.type === 'INIT') return
     tagsArray = handleMessage(msg, tagsArray)
-    sockets.forEach((s: WebSocket) => s.send(JSON.stringify(tagsArray)))
+    sockets.forEach((s: WebSocket) => s.send(JSON.stringify(msg)))
     console.log('\x1b[36m%s\x1b[0m', 'Task received', message)
   })
   ws.on('close', () => {

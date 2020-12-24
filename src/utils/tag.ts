@@ -1,4 +1,4 @@
-import { isRecord, typeIs } from './utils'
+import { isRecord, typeIs, State, ISocketMessage, isState } from './types'
 
 export const generateRandomHexColor = () => {
   const hexCode = '0123456789ABCDEF'
@@ -8,11 +8,6 @@ export const generateRandomHexColor = () => {
   }
   return color
 }
-
-export type ISocketMessage =
-  | { type: 'UPDATE'; id: string; text: string }
-  | { type: 'CREATE'; text: string }
-  | { type: 'DELETE'; id: string }
 
 export const decodeMsg = (msg: unknown): void | ISocketMessage => {
   if (!isRecord(msg)) return
@@ -36,16 +31,14 @@ export const decodeMsg = (msg: unknown): void | ISocketMessage => {
         return typeIs<ISocketMessage>({ type: 'DELETE', id: msg.id })
       }
       return
+    case 'INIT':
+      if (isState(msg.data)) {
+        return typeIs<ISocketMessage>({ type: 'INIT', data: msg.data })
+      }
+      return
   }
 }
 
-export interface Tag {
-  id: string
-  text: string
-  color: string
-}
-
-export type State = Array<Tag>
 export const handleMessage = (msg: ISocketMessage, st: State): State => {
   switch (msg.type) {
     case 'UPDATE':
@@ -61,5 +54,7 @@ export const handleMessage = (msg: ISocketMessage, st: State): State => {
           color: generateRandomHexColor()
         }
       ]
+    case 'INIT':
+      return st
   }
 }
