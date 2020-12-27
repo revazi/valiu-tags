@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, useCallback } from 'react'
+import React, { useState, ChangeEvent, useCallback, KeyboardEvent } from 'react'
 import classNames from 'classnames'
 import styles from './TagRow.module.scss'
 
@@ -17,6 +17,7 @@ interface ITagProps {
 const TagRow = React.memo(({ tag, onEdit, onDelete }: ITagProps) => {
   const [isEditing, setIsEditing] = useState(false)
   const [tagText, setTagText] = useState(tag.text)
+
   const handleTagTextChange = (e: ChangeEvent<HTMLInputElement>) => {
     setTagText(e.target.value)
   }
@@ -31,6 +32,12 @@ const TagRow = React.memo(({ tag, onEdit, onDelete }: ITagProps) => {
   const handleDeleteClick = useCallback(() => {
     onDelete && onDelete(tag.id)
   }, [onDelete, tag])
+  
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleEditSaveClick()
+    }
+  }, [handleEditSaveClick])
 
   return (
     <div
@@ -49,6 +56,7 @@ const TagRow = React.memo(({ tag, onEdit, onDelete }: ITagProps) => {
                 type="text"
                 value={tagText}
                 onChange={handleTagTextChange}
+                onKeyDown={handleKeyDown}
                 autoFocus={true}
               />
             ) : (
