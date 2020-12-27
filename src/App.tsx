@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { Tagger } from 'components/Tagger'
 import { decodeMsg, handleMessage } from 'utils/tag'
-import { State } from 'utils/types'
+import { State, MessageType } from 'utils/types'
 
 const wsUrl = 'ws://localhost:3080'
 const App = () => {
@@ -22,7 +22,7 @@ const App = () => {
       if (message.data) {
         const msg = decodeMsg(JSON.parse(message.data))
         if(msg !== undefined || msg) {
-          if(msg.type === 'INIT') {
+          if(msg.type === MessageType.INIT) {
             setTags(handleMessage(msg, msg.data))
           } else {
             setTags((tags) => handleMessage(msg, tags))
@@ -51,7 +51,7 @@ const App = () => {
   const onEdit = useCallback((tId: string, text: string) => {
     ws.current.send(
       JSON.stringify({
-        type: 'UPDATE',
+        type: MessageType.UPDATE,
         id: tId,
         text: text
       })
@@ -61,7 +61,7 @@ const App = () => {
   const onCreate = useCallback((text: string) => {
     ws.current.send(
       JSON.stringify({
-        type: 'CREATE',
+        type: MessageType.CREATE,
         text: text
       })
     )
@@ -70,7 +70,7 @@ const App = () => {
   const onDelete = useCallback((tId: string) => {
     ws.current.send(
       JSON.stringify({
-        type: 'DELETE',
+        type: MessageType.DELETE,
         id: tId
       })
     )

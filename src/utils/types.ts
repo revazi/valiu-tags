@@ -24,8 +24,15 @@ export const isState = (data: unknown): data is State => {
   )
 }
 
+export enum MessageType {
+  UPDATE = 'UPDATE',
+  CREATE = 'CREATE',
+  DELETE = 'DELETE',
+  INIT = 'INIT'
+}
+
 export type ISocketMessage =
-  | { type: 'UPDATE'; id: string; text: string }
-  | { type: 'CREATE'; text: string }
-  | { type: 'DELETE'; id: string }
-  | { type: 'INIT'; data: State }
+  | { type: MessageType.UPDATE; id: string; text: string }
+  | { type: MessageType.CREATE; text: string }
+  | { type: MessageType.DELETE; id: string }
+  | { type: MessageType.INIT; data: State }

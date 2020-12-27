@@ -1,4 +1,4 @@
-import { isRecord, typeIs, State, ISocketMessage, isState } from './types'
+import { isRecord, typeIs, State, ISocketMessage, isState, MessageType } from './types'
 
 export const generateRandomHexColor = () => {
   const hexCode = '0123456789ABCDEF'
@@ -12,28 +12,28 @@ export const generateRandomHexColor = () => {
 export const decodeMsg = (msg: unknown): void | ISocketMessage => {
   if (!isRecord(msg)) return
   switch (msg.type) {
-    case 'UPDATE':
+    case MessageType.UPDATE:
       if (typeof msg.id === 'string' && typeof msg.text === 'string') {
         return typeIs<ISocketMessage>({
-          type: 'UPDATE',
+          type: MessageType.UPDATE,
           id: msg.id,
           text: msg.text
         })
       }
       return
-    case 'CREATE':
+    case MessageType.CREATE:
       if (typeof msg.text === 'string') {
-        return typeIs<ISocketMessage>({ type: 'CREATE', text: msg.text })
+        return typeIs<ISocketMessage>({ type: MessageType.CREATE, text: msg.text })
       }
       return
-    case 'DELETE':
+    case MessageType.DELETE:
       if (typeof msg.id === 'string') {
-        return typeIs<ISocketMessage>({ type: 'DELETE', id: msg.id })
+        return typeIs<ISocketMessage>({ type: MessageType.DELETE, id: msg.id })
       }
       return
-    case 'INIT':
+    case MessageType.INIT:
       if (isState(msg.data)) {
-        return typeIs<ISocketMessage>({ type: 'INIT', data: msg.data })
+        return typeIs<ISocketMessage>({ type: MessageType.INIT, data: msg.data })
       }
       return
   }
@@ -41,11 +41,11 @@ export const decodeMsg = (msg: unknown): void | ISocketMessage => {
 
 export const handleMessage = (msg: ISocketMessage, st: State): State => {
   switch (msg.type) {
-    case 'UPDATE':
+    case MessageType.UPDATE:
       return st.map((t) => (t.id === msg.id ? { ...t, text: msg.text } : t))
-    case 'DELETE':
+    case MessageType.DELETE:
       return st.filter((t) => t.id !== msg.id)
-    case 'CREATE':
+    case MessageType.CREATE:
       return [
         ...st,
         {
@@ -54,7 +54,7 @@ export const handleMessage = (msg: ISocketMessage, st: State): State => {
           color: generateRandomHexColor()
         }
       ]
-    case 'INIT':
+    case MessageType.INIT:
       return st
   }
 }
