@@ -1,4 +1,4 @@
-@import "~styles/_variables.scss";
+@import '~styles/_variables.scss';
 
 .tagger {
   display: block;
@@ -6,7 +6,7 @@
   width: 100%;
   max-width: $tagger-max-width;
   margin: $s104 auto 0;
-  font-size: $fs-m;
+  font-size: $fs-xs;
   background: $color-white;
   .header {
     width: 100%;
@@ -17,6 +17,8 @@
   }
   button.header {
     cursor: pointer;
+    &:focus {
+      outline: none;
+    }
   }
 }
-

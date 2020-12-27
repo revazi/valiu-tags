@@ -6,6 +6,7 @@
   box-sizing: border-box;
   background: yellow;
   background-color: green;
+  font-size: $fs-xs;
   &:before {
     content: '';
     display: block;
@@ -34,7 +35,8 @@
 
     background-color: inherit;
   }
-  &:hover, &.active {
+  &:hover,
+  &.active {
     &:before {
       opacity: 1;
     }
@@ -44,8 +46,8 @@
   }
   &.active {
     .content {
-      padding-top: $s12;
-      padding-bottom: $s12;
+      padding-top: $s8;
+      padding-bottom: $s8;
     }
   }
   .bgWrap {
@@ -57,8 +59,8 @@
   }
 
   .circle {
-    width: $s8;
-    height: $s8;
+    width: $circle-size;
+    height: $circle-size;
     border-radius: 50%;
     margin-right: $s4;
     color: $color-text-dark;
@@ -73,7 +75,7 @@
       max-width: 100%;
       display: inline-block;
       white-space: nowrap;
-      margin-left: $s8;
+      margin-left: $s4;
 
       // fix for vertical alignining and not adding extra space
       vertical-align: top;
@@ -86,7 +88,7 @@
     background: white;
 
     line-height: 1.5;
-    padding: $s12 $s8;
+    padding: $s8 $s4;
   }
   .content {
     position: relative;
@@ -105,7 +107,7 @@
   }
   .actions {
     display: flex;
-    font-size: $fs-s;
+    font-size: $fs-xxs;
     color: $color-text-light;
     font-weight: $fw-medium;
     button {
@@ -113,13 +115,12 @@
       border: none;
       box-shadow: none;
       cursor: pointer;
+      &:focus {
+        outline: none;
+      }
       & + button {
         margin-left: $s16;
       }
     }
   }
 }
-
-
-
-

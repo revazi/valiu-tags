@@ -10,22 +10,35 @@ const TagPlaceholder = (props: IContentLoaderProps) => (
     className={styles.svg}
     {...props}
   >
-    <circle cx="25" cy="33" r="4" /> 
-    <rect x="38" y="28" rx="5" ry="5" width="220" height="10" /> 
+    <circle cx="29" cy="31" r="3" /> 
+    <rect x="44" y="26" rx="5" ry="5" width="162" height="10" /> 
     <rect x="625" y="28" rx="5" ry="5" width="42" height="10" /> 
-    <rect x="565" y="28" rx="5" ry="5" width="42" height="10" /> 
-    <circle cx="23" cy="96" r="4" /> 
-    <rect x="36" y="91" rx="5" ry="5" width="220" height="10" /> 
+    <rect x="306" y="27" rx="5" ry="5" width="25" height="8" /> 
     <rect x="625" y="91" rx="5" ry="5" width="42" height="10" /> 
-    <rect x="565" y="91" rx="5" ry="5" width="42" height="10" /> 
-    <circle cx="22" cy="152" r="4" /> 
-    <rect x="35" y="147" rx="5" ry="5" width="220" height="10" /> 
     <rect x="625" y="147" rx="5" ry="5" width="42" height="10" /> 
-    <rect x="565" y="147" rx="5" ry="5" width="42" height="10" /> 
-    <circle cx="23" cy="207" r="4" /> 
-    <rect x="36" y="202" rx="5" ry="5" width="220" height="10" /> 
     <rect x="625" y="202" rx="5" ry="5" width="42" height="10" /> 
-    <rect x="565" y="202" rx="5" ry="5" width="42" height="10" />
+    <rect x="565" y="202" rx="5" ry="5" width="42" height="10" /> 
+    <rect x="340" y="27" rx="5" ry="5" width="35" height="8" /> 
+    <circle cx="29" cy="71" r="3" /> 
+    <rect x="44" y="66" rx="5" ry="5" width="111" height="10" /> 
+    <rect x="306" y="67" rx="5" ry="5" width="25" height="8" /> 
+    <rect x="340" y="67" rx="5" ry="5" width="35" height="8" /> 
+    <circle cx="29" cy="111" r="3" /> 
+    <rect x="44" y="106" rx="5" ry="5" width="180" height="10" /> 
+    <rect x="306" y="107" rx="5" ry="5" width="25" height="8" /> 
+    <rect x="340" y="107" rx="5" ry="5" width="35" height="8" /> 
+    <circle cx="29" cy="151" r="3" /> 
+    <rect x="44" y="146" rx="5" ry="5" width="77" height="10" /> 
+    <rect x="306" y="147" rx="5" ry="5" width="25" height="8" /> 
+    <rect x="340" y="147" rx="5" ry="5" width="35" height="8" /> 
+    <circle cx="29" cy="191" r="3" /> 
+    <rect x="44" y="186" rx="5" ry="5" width="159" height="10" /> 
+    <rect x="306" y="187" rx="5" ry="5" width="25" height="8" /> 
+    <rect x="340" y="187" rx="5" ry="5" width="35" height="8" /> 
+    <circle cx="29" cy="231" r="3" /> 
+    <rect x="44" y="226" rx="5" ry="5" width="127" height="10" /> 
+    <rect x="306" y="227" rx="5" ry="5" width="25" height="8" /> 
+    <rect x="340" y="227" rx="5" ry="5" width="35" height="8" />
   </ContentLoader>
 )
 

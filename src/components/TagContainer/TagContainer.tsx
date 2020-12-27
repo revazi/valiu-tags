@@ -58,7 +58,7 @@ const TagContainer = ({ tags, id, onEdit, onDelete, onCreate }: ITagContainerPro
       />
 
       {tagsToShow?.length ? (
-        <List height={250} itemCount={tagsToShow.length} itemSize={72} width={'100%'}>
+        <List height={250} itemCount={tagsToShow.length} itemSize={50} width={'100%'}>
           {Row}
         </List>
       ) : (
@@ -79,9 +79,9 @@ const TagContainer = ({ tags, id, onEdit, onDelete, onCreate }: ITagContainerPro
             // TODO::Distinguish when data is loading and when there is 
             <TagPlaceholder
               speed={2}
-              width={698}
-              height={150}
-              viewBox="0 0 698 150"
+              width={398}
+              height={250}
+              viewBox="0 0 398 250"
               backgroundColor="#f3f3f3"
               foregroundColor="#ecebeb"
              />
