@@ -1,14 +1,11 @@
-import express from 'express'
+import express, { Request, Response } from 'express'
 import * as http from 'http'
-import { MessageChannel } from 'worker_threads'
 import WebSocket from 'ws'
 import { decodeMsg, handleMessage, generateRandomHexColor } from '../src/utils/tag'
 import { Tag, MessageType } from '../src/utils/types'
 
 const port = 3080
 const app = express()
-const server = http.createServer(app)
-const wss = new WebSocket.Server({ server })
 
 // Add 10 tags for testing
 let tagsArray: Tag[] = []
@@ -19,6 +16,24 @@ for (var i = 0; i < 10; i++) {
     color: generateRandomHexColor()
   })
 }
+
+app.get('/tags', (req: Request, res: Response) => {
+  let page = 1
+  let limit = 20
+  if ('page' in req.query && typeof req.query.page === 'string') {
+    page = parseInt(req.query.page)
+  }
+  const startIndex = (page - 1) * limit
+  const endIndex = page * limit
+  res.status(200).send(JSON.stringify(tagsArray.slice(startIndex, endIndex)))
+})
+
+app.post('/tags', (req: Request, res: Response) => {
+  res.status(200).send(JSON.stringify({ updated: 'huh' }))
+})
+
+const server = http.createServer(app)
+const wss = new WebSocket.Server({ server })
 
 let sockets: WebSocket[] = []
 wss.on('connection', (ws: WebSocket) => {

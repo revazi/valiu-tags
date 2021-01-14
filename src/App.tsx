@@ -21,8 +21,8 @@ const App = () => {
     ws.current.onmessage = (message: any) => {
       if (message.data) {
         const msg = decodeMsg(JSON.parse(message.data))
-        if(msg !== undefined || msg) {
-          if(msg.type === MessageType.INIT) {
+        if (msg !== undefined || msg) {
+          if (msg.type === MessageType.INIT) {
             setTags(handleMessage(msg, msg.data))
           } else {
             setTags((tags) => handleMessage(msg, tags))
@@ -34,7 +34,6 @@ const App = () => {
       checkSocketConnection()
     }
   }, [setTags, checkSocketConnection])
-
 
   useEffect(() => {
     startSocketConnection()
